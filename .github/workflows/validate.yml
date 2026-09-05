@@ -1,0 +1,33 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # Floats intentionally: new releases add checks we want to fail on early.
+      # Pin to a version here if a CLI change ever breaks CI on an untouched repo.
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      # Manifest shape and skill frontmatter. Runs offline; needs no credentials.
+      - name: Validate marketplace manifest
+        run: claude plugin validate . --strict
+
+      - name: Validate cairn plugin
+        run: claude plugin validate ./plugins/cairn --strict
+
+      # Covers what validate does not: name/directory agreement, relative
+      # links, and version drift between plugin.json and the marketplace entry.
+      - name: Check skills
+        run: node scripts/check-skills.mjs

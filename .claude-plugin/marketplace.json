@@ -1,0 +1,25 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "cairn",
+  "description": "Michelle Pellon's AI-assisted software engineering setup.",
+  "owner": {
+    "name": "Michelle Pellon",
+    "email": "mgracepellon@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "cairn",
+      "displayName": "Cairn",
+      "description": "Front-load alignment. A relentless design interview that pins down vocabulary and records decisions as it goes, so the agent builds what you meant.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Michelle Pellon",
+        "email": "mgracepellon@gmail.com"
+      },
+      "source": "./plugins/cairn",
+      "category": "development",
+      "homepage": "https://github.com/michellepellon/cairn",
+      "keywords": ["design", "adr", "domain-modeling", "writing", "planning"]
+    }
+  ]
+}
