@@ -6,5 +6,6 @@
     "name": "Michelle Pellon",
     "email": "mgracepellon@gmail.com"
   },
-  "homepage": "https://github.com/michellepellon/cairn"
+  "homepage": "https://github.com/michellepellon/cairn",
+  "license": "MIT"
 }
